@@ -72,12 +72,13 @@ def main():
                 pos = pygame.mouse.get_pos()
                 if button.rect.collidepoint(pos):
                     clr_sprites = [s for s in all_sprites if s.image.get_at((0, 0)) == color]
-                    all_sprites.remove(clr_sprites)
-                    if len(all_sprites) == 0:
-                        gamer += 2
-                        location = (WIDTH / 4, HEIGHT / 2.5)
-                    else:
-                        gamer = (gamer + 1) % 2
+                    if len (clr_sprites) > 0:
+                        all_sprites.remove(clr_sprites)
+                        if len(all_sprites) == 0:
+                            gamer += 2
+                            location = (WIDTH / 4, HEIGHT / 2.5)
+                        else:
+                            gamer = (gamer + 1) % 2
                 if button_2.rect.collidepoint(pos):
                     main()
 
